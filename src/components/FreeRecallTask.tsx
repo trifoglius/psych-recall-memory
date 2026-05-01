@@ -158,15 +158,18 @@ export default function FreeRecallTask() {
           <h1 className="text-2xl font-bold mb-4 text-center">Memory Study</h1>
           <div className="text-sm text-gray-700 space-y-3 mb-6 max-w-prose">
             <p>
-              You are being invited to participate in a research study on human memory. This
-              study involves viewing lists of words, watching a short video clip, and then
-              recalling as many words as you can remember. The task will be repeated four
-              times with different word lists.
+              You are being invited to participate in a research study on human memory. You will be shown a 
+              list of words, and afterwards you will recall many words as you can remember. The task will be repeated four
+              times with different word lists generated at random.
             </p>
             <p>
-              Participation is entirely voluntary. Your responses are anonymous. There are no
-              known risks associated with this study. The session takes approximately
-              15–20 minutes.
+              Participation is voluntary. Your responses are anonymous. There are no
+              known risks associated with this study. It will take around
+              10 minutes to complete.
+            </p>
+             <p>
+              If, at any point, you decide not to participate, simply exit this tab. Your data will <strong>not</strong> 
+               be included in the final dataset.
             </p>
             <p>
               By clicking <strong>I Agree</strong> below, you confirm that you have read and
