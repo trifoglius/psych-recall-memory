@@ -30,10 +30,10 @@ const WORD_LISTS: string[][] = [
 
 // YouTube video IDs for each trial (neutral, non-distracting clips)
 const YOUTUBE_IDS = [
-  'jNQXAC9IVRw', // "Me at the zoo" - first YouTube video ever
-  'dQw4w9WgXcQ', // placeholder - replace with desired distractor videos
-  'tPEE9ZwTmy0',
-  'y6120QOlsfU',
+  'y-_TGhKGatA', // "Me at the zoo" - first YouTube video ever
+  'DTpnYYqUvGI', // placeholder - replace with desired distractor videos
+  'QEeZA-d7skw',
+  'IcyCj5k6TOI',
 ]
 
 type Phase =
