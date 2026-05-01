@@ -159,17 +159,20 @@ export default function FreeRecallTask() {
           <div className="text-sm text-gray-700 space-y-3 mb-6 max-w-prose">
             <p>
               You are being invited to participate in a research study on human memory. You will be shown a 
-              list of words, and afterwards you will recall many words as you can remember. The task will be repeated four
-              times with different word lists generated at random.
+              list of words, and afterwards you will recall as many words as you can remember. The task will be repeated <b>four</b> 
+              times with different randomly-generated word lists.
             </p>
             <p>
-              Participation is voluntary. Your responses are anonymous. There are no
-              known risks associated with this study. It will take around
+              Participation is voluntary. Your responses are anonymous. There is minimal risk 
+              associated with this study. It will take around
               10 minutes to complete.
             </p>
              <p>
-              If, at any point, you decide not to participate, simply exit this tab. Your data will <strong>not</strong> 
-               be included in the final dataset.
+              If, at any point, you decide not to participate, simply exit this tab. Your data will <strong>not</strong> be 
+               included in the final dataset.
+            </p>
+            <p>
+              Since this is a task of natural memory, please <strong>do not</strong> write down any words.
             </p>
             <p>
               By clicking <strong>I Agree</strong> below, you confirm that you have read and
@@ -180,7 +183,7 @@ export default function FreeRecallTask() {
             onClick={handleConsent}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
           >
-            I Agree — Begin Study
+            I Agree, Begin Study
           </button>
         </Card>
       </Screen>
@@ -194,7 +197,7 @@ export default function FreeRecallTask() {
           <Card>
             <h2 className="text-xl font-semibold mb-4 text-center">Not Eligible</h2>
             <p className="text-gray-700 text-center">
-              This study requires native English speakers. Thank you for your interest —
+              This study requires native English speakers. Thank you for your interest, but
               you are not eligible to participate.
             </p>
           </Card>
@@ -258,7 +261,7 @@ export default function FreeRecallTask() {
       <Screen>
         <div className="flex flex-col items-center gap-6 w-full max-w-2xl px-4">
           <p className="text-gray-600 text-sm text-center">
-            Please watch the following video clip. The recall task will begin when it ends.
+            Please watch the following video clip.
           </p>
           <div className="w-full aspect-video rounded-xl overflow-hidden shadow-lg">
             <iframe
@@ -293,11 +296,11 @@ export default function FreeRecallTask() {
       <Screen>
         <Card>
           <h2 className="text-xl font-semibold mb-2 text-center">
-            Word Recall — Trial {trialIndex + 1} of {WORD_LISTS.length}
+            Word Recall, Trial {trialIndex + 1} of {WORD_LISTS.length}
           </h2>
           <p className="text-gray-600 text-sm mb-4 text-center">
             Type as many words as you can remember from the list you just saw. Separate
-            words with spaces or commas. Spelling does not need to be perfect.
+            words with commas. Spelling does not need to be perfect.
           </p>
           <textarea
             value={recallText}
