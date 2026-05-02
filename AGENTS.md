@@ -11,11 +11,9 @@ A browser-based repeated-measures free recall experiment. Four word lists are pr
 ```
 public/
   favicon.ico
-  form-survey.html      # Legacy Netlify Forms detection file (unused by this app)
 src/
   components/
     FreeRecallTask.tsx  # Entire experiment as a single stateful React component
-    SurveyForm.tsx      # Original template component (unused — kept for reference)
   server/
     recall-export.functions.ts  # Server fn: POST completed session to Google Apps Script URL
   routes/
@@ -23,8 +21,7 @@ src/
     index.tsx           # Mounts FreeRecallTask full-screen
   router.tsx            # TanStack Router setup
   styles.css            # Tailwind import + base font styles
-netlify.toml            # Build: vite build → dist/client; dev target :3000
-vite.config.ts          # Vite with TanStack Start + Netlify + Tailwind plugins
+vite.config.ts          # Vite with TanStack Start + Nitro (Vercel) + Tailwind plugins
 tsconfig.json           # Strict TS, @/* alias for src/*
 ```
 
@@ -53,9 +50,8 @@ On the `final` phase, `submitRecallResults` (TanStack server function) POSTs JSO
 
 | File | Purpose |
 |------|---------|
-| `vite.config.ts` | Vite plugins: TanStack Start, Netlify, Tailwind |
+| `vite.config.ts` | Vite plugins: TanStack Start, Nitro (Vercel), Tailwind |
 | `tsconfig.json` | TypeScript config with `@/*` path alias for `src/*` |
-| `netlify.toml` | Build command, output directory, dev server settings |
 | `styles.css` | Tailwind imports + base font styles |
 
 ## Development Commands
@@ -63,7 +59,6 @@ On the `final` phase, `submitRecallResults` (TanStack server function) POSTs JSO
 ```bash
 npm run dev      # Start dev server on :3000
 npm run build    # Production build
-npx netlify dev  # Dev with full Netlify feature emulation on :8888
 ```
 
 ## Coding Conventions

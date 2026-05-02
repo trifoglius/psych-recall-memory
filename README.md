@@ -10,7 +10,7 @@ A browser-based repeated-measures free recall experiment for cognitive psycholog
 | Build | Vite 7 |
 | Styling | Tailwind CSS 4 |
 | Language | TypeScript 5.7 (strict mode) |
-| Deployment | Netlify |
+| Deployment | Vercel |
 
 ## Experiment Flow
 
@@ -28,12 +28,6 @@ A browser-based repeated-measures free recall experiment for cognitive psycholog
 ```bash
 npm install
 npm run dev          # starts dev server on http://localhost:3000
-```
-
-To run with full Netlify feature emulation (recommended):
-
-```bash
-npx netlify dev      # starts on http://localhost:8888
 ```
 
 ## Customising the Experiment
