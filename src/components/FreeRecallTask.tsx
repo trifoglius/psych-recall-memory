@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 // Four word lists for the four trials
 const WORD_LISTS: string[][] = [
@@ -96,29 +96,12 @@ export default function FreeRecallTask() {
     return clearTimer
   }, [phase, wordIndex, trialIndex])
 
-  // YouTube postMessage listener to detect video end
-  const handleMessage = useCallback((event: MessageEvent) => {
-    try {
-      const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data
-      // YouTube iframe API sends info events; playerState 0 = ended
-      if (data?.event === 'onStateChange' && data?.info === 0) {
-        setVideoEnded(true)
-      }
-      // Some players send a different structure
-      if (data?.info?.playerState === 0) {
-        setVideoEnded(true)
-      }
-    } catch {
-      // ignore non-JSON messages
-    }
-  }, [])
-
+  // Reveal the continue button after a fixed distractor interval
   useEffect(() => {
-    if (phase === 'video') {
-      window.addEventListener('message', handleMessage)
-    }
-    return () => window.removeEventListener('message', handleMessage)
-  }, [phase, handleMessage])
+    if (phase !== 'video') return
+    const t = setTimeout(() => setVideoEnded(true), 45000)
+    return () => clearTimeout(t)
+  }, [phase])
 
   const handleConsent = () => setPhase('english-check')
 
@@ -283,7 +266,7 @@ export default function FreeRecallTask() {
           )}
           {!videoEnded && (
             <p className="text-xs text-gray-400">
-              The continue button will appear when the video ends.
+              The continue button will appear after 45 seconds.
             </p>
           )}
         </div>
