@@ -16,6 +16,8 @@ src/
   components/
     FreeRecallTask.tsx  # Entire experiment as a single stateful React component
     SurveyForm.tsx      # Original template component (unused — kept for reference)
+  server/
+    recall-export.functions.ts  # Server fn: POST completed session to Google Apps Script URL
   routes/
     __root.tsx          # Root HTML shell, HeadContent, Scripts
     index.tsx           # Mounts FreeRecallTask full-screen
@@ -44,8 +46,8 @@ Both are plain arrays at the top of `FreeRecallTask.tsx` — easy to replace wit
 - `WORD_LISTS`: 4 arrays of 20 words each
 - `YOUTUBE_IDS`: 4 YouTube video IDs (one per trial)
 
-### No persistence / backend
-Recalled words are held in component state only. If response logging is needed, add a Netlify Function (see `/netlify/functions`) and POST from `handleSubmitRecall`.
+### Results export (Google Sheets)
+On the `final` phase, `submitRecallResults` (TanStack server function) POSTs JSON to `process.env.GOOGLE_SHEETS_WEB_APP_URL` — deploy a Google Apps Script **Web app** on your spreadsheet that implements `doPost` and appends a row (see the comment block in `src/server/recall-export.functions.ts`). Optional `GOOGLE_SHEETS_INGEST_SECRET` is sent as `secret` for the script to verify against a Script Property `INGEST_SECRET`. If the URL env var is unset, export is skipped and the participant still sees the thank-you screen.
 
 ## Configuration Files
 

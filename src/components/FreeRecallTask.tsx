@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { submitRecallResults } from '@/server/recall-export.functions'
 
 // Four word lists for the four trials
 const WORD_LISTS: string[][] = [
@@ -50,16 +51,30 @@ interface TrialData {
   recallText: string
 }
 
+type SheetExportState =
+  | { status: 'idle' }
+  | { status: 'loading' }
+  | { status: 'ok' }
+  | { status: 'error' }
+  | { status: 'skipped' }
+
 export default function FreeRecallTask() {
   const [phase, setPhase] = useState<Phase>('consent')
   const [trialIndex, setTrialIndex] = useState(0)
   const [wordIndex, setWordIndex] = useState(0)
   const [recallText, setRecallText] = useState('')
   const [results, setResults] = useState<TrialData[]>([])
+  const [sheetExport, setSheetExport] = useState<SheetExportState>({ status: 'idle' })
   const [videoEnded, setVideoEnded] = useState(false)
   const [nonNativeBlocked, setNonNativeBlocked] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const playerRef = useRef<HTMLIFrameElement | null>(null)
+  const sessionIdRef = useRef(
+    typeof crypto !== 'undefined' && 'randomUUID' in crypto
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+  )
+  const sheetExportStartedRef = useRef(false)
 
   const clearTimer = () => {
     if (timerRef.current) {
@@ -102,6 +117,35 @@ export default function FreeRecallTask() {
     const t = setTimeout(() => setVideoEnded(true), 45000)
     return () => clearTimeout(t)
   }, [phase])
+
+  useEffect(() => {
+    if (phase !== 'final' || results.length !== WORD_LISTS.length) return
+    if (sheetExportStartedRef.current) return
+    sheetExportStartedRef.current = true
+    setSheetExport({ status: 'loading' })
+    let cancelled = false
+    const sorted = [...results].sort((a, b) => a.trial - b.trial)
+    void (async () => {
+      try {
+        const r = await submitRecallResults({
+          data: {
+            sessionId: sessionIdRef.current,
+            completedAt: new Date().toISOString(),
+            trials: sorted.map((t) => ({ trial: t.trial, recallText: t.recallText })),
+          },
+        })
+        if (cancelled) return
+        if (r.ok) setSheetExport({ status: 'ok' })
+        else if (r.reason === 'not_configured') setSheetExport({ status: 'skipped' })
+        else setSheetExport({ status: 'error' })
+      } catch {
+        if (!cancelled) setSheetExport({ status: 'error' })
+      }
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [phase, results])
 
   const handleConsent = () => setPhase('english-check')
 
@@ -313,6 +357,20 @@ export default function FreeRecallTask() {
             You have completed all four trials of the memory study. Your responses have been
             recorded.
           </p>
+          {sheetExport.status === 'loading' && (
+            <p className="text-gray-600 text-sm text-center mb-4">Submitting your responses…</p>
+          )}
+          {sheetExport.status === 'ok' && (
+            <p className="text-green-700 text-sm text-center mb-4">
+              Your responses were submitted successfully.
+            </p>
+          )}
+          {sheetExport.status === 'error' && (
+            <p className="text-amber-800 text-sm text-center mb-4">
+              We could not confirm that your responses reached the researcher. If this message
+              persists, please contact the researcher before leaving.
+            </p>
+          )}
           <p className="text-gray-500 text-sm text-center">
             You may now close this window. If you have any questions about this study, please
             contact the researcher.
