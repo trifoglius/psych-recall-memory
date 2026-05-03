@@ -187,7 +187,7 @@ export default function FreeRecallTask() {
             <p>
               You are being invited to participate in a research study on human memory. You will be shown a 
               list of words, and afterwards you will recall as many words as you can remember. The task will be repeated <b>four</b> 
-              times with different randomly-generated word lists.
+               times with different randomly-generated word lists.
             </p>
             <p>
               Participation is voluntary. Your responses are anonymous. There is minimal risk 
@@ -305,7 +305,7 @@ export default function FreeRecallTask() {
               onClick={() => setPhase('recall')}
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-lg transition-colors"
             >
-              Continue to Recall
+              Continue
             </button>
           )}
           {!videoEnded && (
@@ -354,8 +354,9 @@ export default function FreeRecallTask() {
         <Card>
           <h2 className="text-2xl font-bold mb-4 text-center">Thank You!</h2>
           <p className="text-gray-700 text-center mb-4">
-            You have completed all four trials of the memory study. Your responses have been
-            recorded.
+            You have completed all four trials of the memory study. Thank you for participation. The true purpose of this 
+            study was to investigate memory in words with rhymes. You were not told this in order to prevent any changes in 
+            memorization.
           </p>
           {sheetExport.status === 'loading' && (
             <p className="text-gray-600 text-sm text-center mb-4">Submitting your responses…</p>
