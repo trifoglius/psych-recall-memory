@@ -185,7 +185,7 @@ export default function FreeRecallTask() {
           <h1 className="text-2xl font-bold mb-4 text-center">Memory Study</h1>
           <div className="text-sm text-gray-700 space-y-3 mb-6 max-w-prose">
             <p>
-              You are being invited to participate in a research study on human memory. You will be shown a 
+              You have been invited to participate in a research study on human memory. You will be shown a 
               list of words, and afterwards you will recall as many words as you can remember. The task will be repeated <b>four</b> 
                times with different randomly-generated word lists.
             </p>
@@ -356,7 +356,8 @@ export default function FreeRecallTask() {
           <p className="text-gray-700 text-center mb-4">
             You have completed all four trials of the memory study. Thank you for participation. The true purpose of this 
             study was to investigate memory in words with rhymes. You were not told this in order to prevent any changes in 
-            memorization.
+            memorization. If you would not like to be included in the dataset, please exit this tab and e-mail the researcher at jpharris131@Gmail.com, indicating the 
+            timestamp of your participation.
           </p>
           {sheetExport.status === 'loading' && (
             <p className="text-gray-600 text-sm text-center mb-4">Submitting your responses…</p>
