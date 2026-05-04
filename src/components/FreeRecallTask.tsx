@@ -90,7 +90,7 @@ export default function FreeRecallTask() {
       timerRef.current = setTimeout(() => {
         setWordIndex(0)
         setPhase('word-display')
-      }, 1500)
+      }, 500)
     }
     return clearTimer
   }, [phase])
