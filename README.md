@@ -1,6 +1,6 @@
-# Memory Study — Free Recall Task
+# Free Recall Task
 
-A browser-based repeated-measures free recall experiment for psychology research. Participants view lists of words, watch a short YouTube distractor video, then type as many words as they can remember. The task repeats across four independent trials.
+A browser-based repeated-measures free recall experiment for an AICE Psychology assignment. Participants view lists of words, watch a short YouTube distractor video, then type as many words as they can remember. The task repeats across four independent trials.
 
 ## Key Technologies
 
