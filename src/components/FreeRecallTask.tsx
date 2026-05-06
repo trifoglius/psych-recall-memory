@@ -90,7 +90,7 @@ export default function FreeRecallTask() {
       timerRef.current = setTimeout(() => {
         setWordIndex(0)
         setPhase('word-display')
-      }, 1500)
+      }, 1000)
     }
     return clearTimer
   }, [phase])
@@ -102,7 +102,7 @@ export default function FreeRecallTask() {
       clearTimer()
       timerRef.current = setTimeout(() => {
         setWordIndex((i) => i + 1)
-      }, 1500)
+      }, 2000)
     } else {
       // All words shown, move to video
       setPhase('video')
