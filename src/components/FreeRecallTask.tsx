@@ -63,6 +63,7 @@ export default function FreeRecallTask() {
   const [trialIndex, setTrialIndex] = useState(0)
   const [wordIndex, setWordIndex] = useState(0)
   const [recallText, setRecallText] = useState('')
+  const [recallTimeLeft, setRecallTimeLeft] = useState(120)
   const [results, setResults] = useState<TrialData[]>([])
   const [sheetExport, setSheetExport] = useState<SheetExportState>({ status: 'idle' })
   const [videoEnded, setVideoEnded] = useState(false)
@@ -170,6 +171,22 @@ export default function FreeRecallTask() {
       setPhase('final')
     }
   }
+
+  useEffect(() => {
+  if (phase !== 'recall') return
+  setRecallTimeLeft(120)
+  const interval = setInterval(() => {
+    setRecallTimeLeft((t) => {
+      if (t <= 1) {
+        clearInterval(interval)
+        handleSubmitRecall()
+        return 0
+      }
+      return t - 1
+    })
+  }, 1000)
+  return () => clearInterval(interval)
+}, [phase, trialIndex])
 
   const currentWords = WORD_LISTS[trialIndex]
   const currentWord = phase === 'word-display' && wordIndex < currentWords.length
@@ -328,6 +345,9 @@ export default function FreeRecallTask() {
           <p className="text-gray-600 text-sm mb-4 text-center">
             Type as many words as you can remember from the list you just saw. The order does not matter. Separate
             words with commas.
+          </p>
+          <p className="text-red-500 text-sm text-center font-semibold mb-2">
+            Time remaining: {recallTimeLeft}s
           </p>
           <textarea
             value={recallText}
