@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { submitRecallResults } from '@/server/recall-export.functions'
 
 // Four word lists for the four trials
@@ -115,7 +115,7 @@ export default function FreeRecallTask() {
   // Reveal the continue button after a fixed distractor interval
   useEffect(() => {
     if (phase !== 'video') return
-    const t = setTimeout(() => setVideoEnded(true), 45000)
+    const t = setTimeout(() => setPhase('recall'), 45000)
     return () => clearTimeout(t)
   }, [phase])
 
@@ -158,7 +158,7 @@ export default function FreeRecallTask() {
     setPhase('fixation')
   }
 
-  const handleSubmitRecall = () => {
+  const handleSubmitRecall = useCallback(() => {
     const trialData: TrialData = { trial: trialIndex + 1, recallText }
     const updatedResults = [...results, trialData]
     setResults(updatedResults)
@@ -170,7 +170,7 @@ export default function FreeRecallTask() {
     } else {
       setPhase('final')
     }
-  }
+  }, [results, trialIndex, recallText])
 
   useEffect(() => {
   if (phase !== 'recall') return
@@ -186,7 +186,7 @@ export default function FreeRecallTask() {
     })
   }, 1000)
   return () => clearInterval(interval)
-}, [phase, trialIndex])
+}, [phase, trialIndex, handleSubmitRecall])
 
   const currentWords = WORD_LISTS[trialIndex]
   const currentWord = phase === 'word-display' && wordIndex < currentWords.length
@@ -317,19 +317,9 @@ export default function FreeRecallTask() {
               title="Distractor video"
             />
           </div>
-          {videoEnded && (
-            <button
-              onClick={() => setPhase('recall')}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-lg transition-colors"
-            >
-              Continue
-            </button>
-          )}
-          {!videoEnded && (
-            <p className="text-xs text-gray-400">
-              The continue button will appear after 45 seconds.
-            </p>
-          )}
+          <p className="text-xs text-gray-400">
+            The recall task will begin automatically.
+          </p>
         </div>
       </Screen>
     )
