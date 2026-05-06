@@ -326,8 +326,8 @@ export default function FreeRecallTask() {
             Word Recall, Trial {trialIndex + 1} of {WORD_LISTS.length}
           </h2>
           <p className="text-gray-600 text-sm mb-4 text-center">
-            Type as many words as you can remember from the list you just saw. Separate
-            words with commas. Spelling does not need to be perfect.
+            Type as many words as you can remember from the list you just saw. The order does not matter. Separate
+            words with commas.
           </p>
           <textarea
             value={recallText}
