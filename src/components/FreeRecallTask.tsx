@@ -66,7 +66,6 @@ export default function FreeRecallTask() {
   const [recallTimeLeft, setRecallTimeLeft] = useState(120)
   const [results, setResults] = useState<TrialData[]>([])
   const [sheetExport, setSheetExport] = useState<SheetExportState>({ status: 'idle' })
-  const [videoEnded, setVideoEnded] = useState(false)
   const [nonNativeBlocked, setNonNativeBlocked] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const playerRef = useRef<HTMLIFrameElement | null>(null)
@@ -91,7 +90,7 @@ export default function FreeRecallTask() {
       timerRef.current = setTimeout(() => {
         setWordIndex(0)
         setPhase('word-display')
-      }, 500)
+      }, 1500)
     }
     return clearTimer
   }, [phase])
@@ -105,8 +104,7 @@ export default function FreeRecallTask() {
         setWordIndex((i) => i + 1)
       }, 1500)
     } else {
-      // All words shown — move to video
-      setVideoEnded(false)
+      // All words shown, move to video
       setPhase('video')
     }
     return clearTimer
