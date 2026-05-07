@@ -2,25 +2,30 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { submitRecallResults } from '@/server/recall-export.functions'
 
 // Four word lists for the four trials
-const WORD_LISTS: string[][] = [
+// Four word lists, indexed by rhyme density: 0=0%R, 1=20%R, 2=40%R, 3=60%R
+const WORD_LISTS_BY_DENSITY: string[][] = [
+  // 0% R
   [
     'apple', 'river', 'chair', 'thunder', 'purple',
     'bottle', 'freedom', 'ladder', 'orange', 'window',
     'blanket', 'journey', 'pencil', 'ocean', 'cabinet',
     'shadow', 'trumpet', 'needle', 'forest', 'copper',
   ],
+  // 20% R
   [
     'table', 'lantern', 'bridge', 'silver', 'garden',
     'mirror', 'candle', 'harvest', 'marble', 'feather',
     'balloon', 'crystal', 'avenue', 'shelter', 'falcon',
     'gravel', 'compass', 'anchor', 'velvet', 'glacier',
   ],
+  // 40% R
   [
     'castle', 'pepper', 'violin', 'puddle', 'helmet',
     'basket', 'lemon', 'cactus', 'pillow', 'magnet',
     'dragon', 'butter', 'tunnel', 'rocket', 'clover',
     'fossil', 'curtain', 'goblin', 'pebble', 'blossom',
   ],
+  // 60% R
   [
     'banner', 'engine', 'winter', 'socket', 'timber',
     'parrot', 'canopy', 'grotto', 'cobalt', 'fender',
@@ -28,6 +33,20 @@ const WORD_LISTS: string[][] = [
     'lanyard', 'bracket', 'sparrow', 'thicket', 'chimney',
   ],
 ]
+
+// The four counterbalance templates (each is an ordered list of density indices)
+const TEMPLATES: number[][] = [
+  [0, 1, 2, 3], // Template 1: 0%R, 20%R, 40%R, 60%R
+  [1, 3, 0, 2], // Template 2: 20%R, 60%R, 0%R, 40%R
+  [2, 0, 3, 1], // Template 3: 40%R, 0%R, 60%R, 20%R
+  [3, 2, 1, 0], // Template 4: 60%R, 40%R, 20%R, 0%R
+]
+
+// Pick a random template once per session
+const SESSION_TEMPLATE = TEMPLATES[Math.floor(Math.random() * TEMPLATES.length)]
+
+// Build the word lists in the order this participant will see them
+const WORD_LISTS: string[][] = SESSION_TEMPLATE.map(i => WORD_LISTS_BY_DENSITY[i])
 
 // YouTube video IDs for each trial (neutral, non-distracting clips)
 const YOUTUBE_IDS = [
@@ -69,6 +88,7 @@ export default function FreeRecallTask() {
   const [nonNativeBlocked, setNonNativeBlocked] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const playerRef = useRef<HTMLIFrameElement | null>(null)
+  const templateRef = useRef(TEMPLATES.indexOf(SESSION_TEMPLATE))
   const sessionIdRef = useRef(
     typeof crypto !== 'undefined' && 'randomUUID' in crypto
       ? crypto.randomUUID()
@@ -130,6 +150,7 @@ export default function FreeRecallTask() {
           data: {
             sessionId: sessionIdRef.current,
             completedAt: new Date().toISOString(),
+            template: templateRef.current + 1,
             trials: sorted.map((t) => ({ trial: t.trial, recallText: t.recallText })),
           },
         })
