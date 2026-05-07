@@ -218,8 +218,7 @@ export default function FreeRecallTask() {
           <div className="text-sm text-gray-700 space-y-3 mb-6 max-w-prose">
             <p>
               You have been invited to participate in a research study on human memory. You will be shown a 
-              list of words, and afterwards you will be asked to recall as many words as you can remember. The task will be repeated <b>four</b> 
-                times with different randomly-generated word lists.
+              list of words, and afterwards you will be asked to recall as many words as you can remember. The task will be repeated <b>four</b> times with different randomly-generated word lists.
             </p>
             <p>
               Participation is voluntary. Your responses are anonymous. There is minimal risk 
@@ -271,7 +270,7 @@ export default function FreeRecallTask() {
             
             Are you a <strong>native English speaker</strong>?<br></br>
             Are you in <strong>high school</strong>?<br></br>
-            Are you aged <strong>14-19</strong> years old?<br></br>
+            Are you aged <strong>14-19</strong>?<br></br>
 
           </p>
           <div className="flex flex-col gap-3">
