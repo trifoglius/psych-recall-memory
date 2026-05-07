@@ -218,8 +218,8 @@ export default function FreeRecallTask() {
           <div className="text-sm text-gray-700 space-y-3 mb-6 max-w-prose">
             <p>
               You have been invited to participate in a research study on human memory. You will be shown a 
-              list of words, and afterwards you will recall as many words as you can remember. The task will be repeated <b>four</b> 
-               times with different randomly-generated word lists.
+              list of words, and afterwards you will be asked to recall as many words as you can remember. The task will be repeated <b>four</b> 
+                times with different randomly-generated word lists.
             </p>
             <p>
               Participation is voluntary. Your responses are anonymous. There is minimal risk 
@@ -265,7 +265,7 @@ export default function FreeRecallTask() {
     return (
       <Screen>
         <Card>
-          <h2 className="text-xl font-semibold mb-4 text-center">Language Check</h2>
+          <h2 className="text-xl font-semibold mb-4 text-center">Selection Criteria</h2>
           <p className="text-gray-700 mb-6 text-center">
             To participate in this study, please consider the following questions:<br></br>
             
@@ -337,7 +337,7 @@ export default function FreeRecallTask() {
             />
           </div>
           <p className="text-xs text-gray-400">
-            The recall task will begin automatically.
+            The next task will begin automatically.
           </p>
         </div>
       </Screen>
