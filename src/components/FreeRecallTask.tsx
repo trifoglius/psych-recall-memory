@@ -44,12 +44,12 @@ const SESSION_TEMPLATE = TEMPLATES[Math.floor(Math.random() * TEMPLATES.length)]
 // Build the word lists in the order this participant will see them
 const WORD_LISTS: string[][] = SESSION_TEMPLATE.map(i => WORD_LISTS_BY_DENSITY[i])
 
-// YouTube video IDs for each trial (neutral, non-distracting clips)
+// YouTube video IDs for each trial
 const YOUTUBE_IDS = [
-  'y-_TGhKGatA',
-  'DTpnYYqUvGI',
-  'QEeZA-d7skw',
-  'IcyCj5k6TOI',
+  '',
+  '',
+  '',
+  '',
 ]
 
 type Phase =
@@ -208,7 +208,7 @@ export default function FreeRecallTask() {
     ? currentWords[wordIndex]
     : null
 
-  // ---- Render ----
+  // Render
 
   if (phase === 'consent') {
     return (
