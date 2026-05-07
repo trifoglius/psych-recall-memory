@@ -267,7 +267,7 @@ export default function FreeRecallTask() {
         <Card>
           <h2 className="text-xl font-semibold mb-4 text-center">Selection Criteria</h2>
           <p className="text-gray-700 mb-6 text-center">
-            To participate in this study, please consider the following questions:<br></br>
+            To participate in this study, please answer the following questions:<br></br>
             
             Are you a <strong>native English speaker</strong>?<br></br>
             Are you in <strong>high school</strong>?<br></br>
