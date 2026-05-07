@@ -11,6 +11,7 @@ export type TrialExport = { trial: number; recallText: string }
 export type RecallExportInput = {
   sessionId: string
   completedAt: string
+  template: number
   trials: TrialExport[]
 }
 
@@ -49,6 +50,7 @@ function validateRecallExportInput(data: unknown): RecallExportInput {
   return {
     sessionId: d.sessionId,
     completedAt: d.completedAt,
+    template: typeof d.template === 'number' ? d.template : 0,
     trials,
   }
 }
@@ -76,6 +78,7 @@ export const submitRecallResults = createServerFn({ method: 'POST' })
           ...(secret ? { secret } : {}),
           sessionId: data.sessionId,
           completedAt: data.completedAt,
+          template: data.template,
           trials: data.trials,
         }),
       })
