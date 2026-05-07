@@ -7,10 +7,10 @@ const WORD_LISTS_BY_DENSITY: string[][] = [
   // 0% R
   [
     'palm', 'dog', 'cone', 'tool',
-    'vine', 'bank', 'world', 'tank',
+    'vine', 'bank', 'world', 'ant',
     'toast', 'flame', 'bat', 'truck',
     'bloom', 'roof', 'chalk', 'house',
-    'mail', 'pie', 'spear', 'bench',
+    'bird', 'pie', 'spear', 'bench',
   ],
   // 20% R
   [
