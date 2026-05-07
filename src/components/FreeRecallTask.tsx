@@ -46,10 +46,10 @@ const WORD_LISTS: string[][] = SESSION_TEMPLATE.map(i => WORD_LISTS_BY_DENSITY[i
 
 // YouTube video IDs for each trial
 const YOUTUBE_IDS = [
-  '',
-  '',
-  '',
-  '',
+  'HgxEmNMXXdQ',
+  '2loxoi2-5BY',
+  'GcSZ6xAE6TU',
+  'f0Xin0WRbP4',
 ]
 
 type Phase =
@@ -129,7 +129,7 @@ export default function FreeRecallTask() {
   // Reveal the continue button after a fixed distractor interval
   useEffect(() => {
     if (phase !== 'video') return
-    const t = setTimeout(() => setPhase('recall'), 45000)
+    const t = setTimeout(() => setPhase('recall'), 50500)
     return () => clearTimeout(t)
   }, [phase])
 
