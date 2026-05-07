@@ -6,10 +6,11 @@ import { submitRecallResults } from '@/server/recall-export.functions'
 const WORD_LISTS_BY_DENSITY: string[][] = [
   // 0% R
   [
-    'apple', 'river', 'chair', 'thunder', 'purple',
-    'bottle', 'freedom', 'ladder', 'orange', 'window',
-    'blanket', 'journey', 'pencil', 'ocean', 'cabinet',
-    'shadow', 'trumpet', 'needle', 'forest', 'copper',
+    'palm', 'dog', 'cone', 'tool',
+    'vine', 'bank', 'world', 'tank',
+    'toast', 'flame', 'bat', 'truck',
+    'bloom', 'roof', 'chalk', 'house',
+    'mail', 'pie', 'spear', 'bench',
   ],
   // 20% R
   [
