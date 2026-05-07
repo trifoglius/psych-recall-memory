@@ -26,7 +26,7 @@ const WORD_LISTS_BY_DENSITY: string[][] = [
   ],
   // 60% R
   [
-    'goat', 'quote', 'hand', 'boat', 'oat', 'tape', 'queen', 'gloat', 'book', 'float', 'moat', 'tote', 'horn', 'coat', 'note', 'wolf', 'wrote', 'cash', 'throat', 'slush',
+     'slush', 'goat', 'quote', 'hand', 'boat', 'tape', 'oat', 'tote', 'queen', 'gloat', 'book', 'float', 'moat', 'horn', 'coat', 'note', 'wolf', 'wrote', 'cash', 'throat',
   ],
 ]
 
