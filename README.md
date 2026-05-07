@@ -18,7 +18,7 @@ A browser-based repeated-measures free recall experiment for an AICE Psychology 
 2. **Language check**; participant confirms they are a native English speaker (non-native speakers are screened out)
 3. **Fixation cross**; displayed for 1500 ms before each trial
 4. **Word presentation**; 20 words shown sequentially at 2500 ms each
-5. **Distractor video**; an embedded YouTube video; the continue button appears only after the video ends
+5. **Distractor video**; an embedded YouTube video;
 6. **Free recall**; participant types recalled words into a text area for 2 minutes.
 7. Steps 3–6 repeat for **four trials** with four different word lists
 8. **Final notice**; debriefing and confirming completion
