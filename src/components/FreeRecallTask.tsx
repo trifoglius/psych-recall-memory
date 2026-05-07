@@ -256,8 +256,7 @@ export default function FreeRecallTask() {
           <Card>
             <h2 className="text-xl font-semibold mb-4 text-center">Not Eligible</h2>
             <p className="text-gray-700 text-center">
-              This study requires native English speakers. Thank you for your interest, but
-              you are not eligible to participate.
+              Thank you for your interest, but you are not eligible to participate.
             </p>
           </Card>
         </Screen>
@@ -268,20 +267,25 @@ export default function FreeRecallTask() {
         <Card>
           <h2 className="text-xl font-semibold mb-4 text-center">Language Check</h2>
           <p className="text-gray-700 mb-6 text-center">
-            Are you a <strong>native English speaker</strong>?
+            To participate in this study, please consider the following questions:<br></br>
+            
+            Are you a <strong>native English speaker</strong>?<br></br>
+            Are you in <strong>high school</strong>?<br></br>
+            Are you aged <strong>14-19</strong> years old?<br></br>
+
           </p>
           <div className="flex flex-col gap-3">
             <button
               onClick={() => handleEnglishConfirm(true)}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
             >
-              Yes, English is my native language
+              Yes to <strong>all</strong> questions.
             </button>
             <button
               onClick={() => handleEnglishConfirm(false)}
               className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-6 rounded-lg transition-colors"
             >
-              No
+              No to <strong>one or more</strong> questions.
             </button>
           </div>
         </Card>
