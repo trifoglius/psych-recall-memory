@@ -54,37 +54,10 @@ function validateRecallExportInput(data: unknown): RecallExportInput {
 }
 
 /**
- * Sends one completed session to your Google Sheet via a Google Apps Script
+ * Sends one completed session to Google Sheet via a Google Apps Script
  * "Web app" URL. Set env `GOOGLE_SHEETS_WEB_APP_URL` to the deployment URL.
- * Optional `GOOGLE_SHEETS_INGEST_SECRET` is sent as `secret` for verification in the script.
- *
- * Example Apps Script (Tools > Script editor on the spreadsheet), then Deploy > New deployment > Web app:
- *
- * function doPost(e) {
- *   var body = JSON.parse(e.postData.contents);
- *   var expected = PropertiesService.getScriptProperties().getProperty('INGEST_SECRET');
- *   if (expected && body.secret !== expected) {
- *     return ContentService.createTextOutput(JSON.stringify({ ok: false }))
- *       .setMimeType(ContentService.MimeType.JSON);
- *   }
- *   var trials = body.trials || [];
- *   function textFor(n) {
- *     for (var i = 0; i < trials.length; i++) {
- *       if (trials[i].trial === n) return String(trials[i].recallText || '');
- *     }
- *     return '';
- *   }
- *   SpreadsheetApp.getActiveSpreadsheet().getActiveSheet().appendRow([
- *     body.completedAt || new Date().toISOString(),
- *     body.sessionId || '',
- *     textFor(1), textFor(2), textFor(3), textFor(4),
- *   ]);
- *   return ContentService.createTextOutput(JSON.stringify({ ok: true }))
- *     .setMimeType(ContentService.MimeType.JSON);
- * }
- *
- * Script property INGEST_SECRET must match Netlify env GOOGLE_SHEETS_INGEST_SECRET if you use it.
- */
+  */
+
 export const submitRecallResults = createServerFn({ method: 'POST' })
   .inputValidator((data: unknown) => validateRecallExportInput(data))
   .handler(async ({ data }: { data: RecallExportInput }): Promise<RecallExportResult> => {
