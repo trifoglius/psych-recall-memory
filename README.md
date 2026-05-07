@@ -22,10 +22,3 @@ A browser-based repeated-measures free recall experiment for an AICE Psychology 
 6. **Free recall**; participant types recalled words into a text area for 2 minutes.
 7. Steps 3–6 repeat for **four trials** with four different word lists
 8. **Final notice**; debriefing and confirming completion
-
-## Running Locally
-
-```bash
-npm install
-npm run dev          # starts dev server on http://localhost:3000
-```
