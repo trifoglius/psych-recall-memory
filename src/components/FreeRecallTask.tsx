@@ -385,7 +385,7 @@ export default function FreeRecallTask() {
           <p className="text-gray-700 text-center mb-4">
             You have completed all four trials of the memory study. Thank you for participation. The true purpose of this 
             study was to investigate memory in words with rhymes. You were not told this in order to prevent any changes in 
-            memorization. If you would not like to be included in the dataset, please exit this tab and e-mail the researcher at jpharris131@Gmail.com, indicating the 
+            memorization. If you would not like to be included in the dataset, please exit this tab and e-mail the researcher at jpharris131@gmail.com, indicating the 
             timestamp of your participation.
           </p>
           {sheetExport.status === 'loading' && (
@@ -403,8 +403,7 @@ export default function FreeRecallTask() {
             </p>
           )}
           <p className="text-gray-500 text-sm text-center">
-            You may now close this window. If you have any questions about this study, please
-            contact the researcher.
+            Do not close this window until the upload is confirmed.
           </p>
         </Card>
       </Screen>
