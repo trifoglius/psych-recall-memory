@@ -9,7 +9,7 @@ A browser-based repeated-measures free recall experiment for an AICE Psychology 
 | Framework | [TanStack Start](https://tanstack.com/start) (React 19, file-based routing) |
 | Build | Vite 7 |
 | Styling | Tailwind CSS 4 |
-| Language | TypeScript 5.7 (strict mode) |
+| Language | TypeScript 5.7 |
 | Deployment | Vercel |
 
 ## Experiment Flow
