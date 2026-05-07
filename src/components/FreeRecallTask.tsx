@@ -14,24 +14,19 @@ const WORD_LISTS_BY_DENSITY: string[][] = [
   ],
   // 20% R
   [
-    'table', 'lantern', 'bridge', 'silver', 'garden',
-    'mirror', 'candle', 'harvest', 'marble', 'feather',
-    'balloon', 'crystal', 'avenue', 'shelter', 'falcon',
-    'gravel', 'compass', 'anchor', 'velvet', 'glacier',
+    'face', 'cart', 'jail', 'guard', 
+    'plate', 'pale', 'doll', 'boy', 
+    'sun', 'cup', 'star', 'sail', 
+    'girl', 'lake', 'cloth', 'branch', 
+    'frog', 'cat', 'ditch', 'tail',
   ],
   // 40% R
   [
-    'castle', 'pepper', 'violin', 'puddle', 'helmet',
-    'basket', 'lemon', 'cactus', 'pillow', 'magnet',
-    'dragon', 'butter', 'tunnel', 'rocket', 'clover',
-    'fossil', 'curtain', 'goblin', 'pebble', 'blossom',
+    'band', 'pet', 'egg', 'seal', 'set', 'threat', 'moth', 'debt', 'hook', 'kite', 'badge', 'desk', 'shield', 'pole', 'spark', 'wet', 'jet', 'sweat', 'school', 'net',
   ],
   // 60% R
   [
-    'banner', 'engine', 'winter', 'socket', 'timber',
-    'parrot', 'canopy', 'grotto', 'cobalt', 'fender',
-    'turnip', 'bonfire', 'plaster', 'summit', 'mortar',
-    'lanyard', 'bracket', 'sparrow', 'thicket', 'chimney',
+    'goat', 'quote', 'hand', 'boat', 'oat', 'tape', 'queen', 'gloat', 'book', 'float', 'moat', 'tote', 'horn', 'coat', 'note', 'wolf', 'wrote', 'cash', 'throat', 'slush',
   ],
 ]
 
@@ -51,8 +46,8 @@ const WORD_LISTS: string[][] = SESSION_TEMPLATE.map(i => WORD_LISTS_BY_DENSITY[i
 
 // YouTube video IDs for each trial (neutral, non-distracting clips)
 const YOUTUBE_IDS = [
-  'y-_TGhKGatA', // "Me at the zoo" - first YouTube video ever
-  'DTpnYYqUvGI', // placeholder - replace with desired distractor videos
+  'y-_TGhKGatA',
+  'DTpnYYqUvGI',
   'QEeZA-d7skw',
   'IcyCj5k6TOI',
 ]
