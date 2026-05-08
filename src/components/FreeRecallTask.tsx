@@ -14,19 +14,19 @@ const WORD_LISTS_BY_DENSITY: string[][] = [
   ],
   // 20% R
   [
-    'face', 'cart', 'jail', 'guard', 
+    'face', 'cart', 'jail', 'broom', 
     'plate', 'pale', 'doll', 'boy', 
     'sun', 'cup', 'star', 'sail', 
-    'girl', 'lake', 'cloth', 'branch', 
+    'gold', 'lake', 'cloth', 'branch', 
     'frog', 'cat', 'ditch', 'tail',
   ],
   // 40% R
   [
-    'band', 'pet', 'egg', 'seal', 'set', 'threat', 'moth', 'debt', 'hook', 'kite', 'badge', 'desk', 'shield', 'pole', 'spark', 'wet', 'jet', 'sweat', 'school', 'net',
+    'band', 'pet', 'egg', 'seal', 'set', 'threat', 'moth', 'debt', 'hook', 'kite', 'zoo', 'desk', 'shield', 'clay', 'spark', 'wet', 'jet', 'sweat', 'school', 'net',
   ],
   // 60% R
   [
-     'slush', 'goat', 'quote', 'hand', 'boat', 'tape', 'oat', 'tote', 'queen', 'gloat', 'book', 'float', 'moat', 'horn', 'coat', 'note', 'wolf', 'wrote', 'cash', 'throat',
+     'slush', 'goat', 'quote', 'hand', 'boat', 'tape', 'oat', 'queen', 'tote', 'book', 'gloat', 'horn', 'note', 'float', 'wolf', 'moat', 'coat', 'wrote', 'cash', 'throat',
   ],
 ]
 
