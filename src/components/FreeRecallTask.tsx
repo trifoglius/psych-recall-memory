@@ -266,20 +266,25 @@ export default function FreeRecallTask() {
         <Card>
           <h2 className="text-xl font-semibold mb-4 text-center">Selection Criteria</h2>
           <p className="text-gray-700 mb-6 text-center">
-            To participate in this study, please confirm you are a <strong>native English speaker</strong>.<br></br>
+            To participate in this study, please answer the following questions:<br></br>
+            
+            Are you a <strong>native English speaker</strong>?<br></br>
+            Are you in <strong>high school</strong>?<br></br>
+            Are you aged <strong>14-19</strong>?<br></br>
+
           </p>
           <div className="flex flex-col gap-3">
             <button
               onClick={() => handleEnglishConfirm(true)}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
             >
-              Yes, I <strong>am</strong> a native English speaker.
+              Yes to <strong>all</strong> questions.
             </button>
             <button
               onClick={() => handleEnglishConfirm(false)}
               className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-6 rounded-lg transition-colors"
             >
-              No, I am <strong>not</strong> a native English speaker.
+              No to <strong>one or more</strong> questions.
             </button>
           </div>
         </Card>
