@@ -385,7 +385,8 @@ export default function FreeRecallTask() {
             You have completed all four trials of the memory study. Thank you for participation. The true purpose of this 
             study was to investigate memory in words with rhymes. You were not told this in order to prevent any changes in 
             memorization. If you would not like to be included in the dataset, please exit this tab and e-mail the researcher at jpharris131@gmail.com, indicating the 
-            timestamp of your participation.
+            timestamp of your participation. <br></br>
+            The music during the arithmetic task is courtesy of Vince Rubetti. You can find the album <a href:"https://vincerubinetti.bandcamp.com/album/the-music-of-3blue1brown" target="_blank">here</a>.
           </p>
           {sheetExport.status === 'loading' && (
             <p className="text-gray-600 text-sm text-center mb-4">Submitting your responses…</p>
