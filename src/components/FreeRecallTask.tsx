@@ -15,7 +15,7 @@ const WORD_LISTS_BY_DENSITY: string[][] = [
   // 20% R
   [
     'face', 'cart', 'jail', 'broom', 
-    'plate', 'pale', 'doll', 'boy', 
+    'plate', 'pale', 'skunk', 'boy', 
     'sun', 'cup', 'star', 'sail', 
     'gold', 'lake', 'cloth', 'branch', 
     'frog', 'cat', 'ditch', 'tail',
